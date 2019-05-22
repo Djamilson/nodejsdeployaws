@@ -50,8 +50,6 @@ $ docker-machine ls
 $ docker -v 
 ```
   
-
-
 criando a imagem
 ```sh
 $ docker-compose -f docker-compose.yml -f docker-production.yml up -d
@@ -106,6 +104,11 @@ Creating nodejsdeployaws_reverse-proxy_1 ... done
 Creating nodejsdeployaws_app_1           ... done
 
 
+Para atualizar a imagem
+
+```sh
+$ docker-compose -f docker-compose.yml -f docker-production.yml up -d --remove-orphans --no-deps --build
+```
 
 
 
