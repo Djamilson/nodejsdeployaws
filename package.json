@@ -5,8 +5,11 @@
   "repository": "https://github.com/Djamilson/nodejsdeployaws.git",
   "author": "Djamilson <djamilson@gmail.com>",
   "license": "MIT",
-  "scripts": {"start": "node index.js"},
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.0"
   }
 }
