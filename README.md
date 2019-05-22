@@ -1,13 +1,17 @@
-# nodejsdeployaws
+# Deploy NODEJS na AWS!
 
-❯aws configure
-ID da chave de acesso: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-Chave de acesso secreta: xxxxxxxxxxxxxxxxxxxxxxxxxxx
-❯ us-east-1
-❯ json
+```sh
+$ aws configure
+$ ID da chave de acesso: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ Chave de acesso secreta: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ us-east-1
+$ json
+```
 
-❯sudo docker-machine create --driver amazonec2 aws02
-
+Criando o servido na AWS
+```sh
+$ sudo docker-machine create --driver amazonec2 aws02
+```
   Running pre-create checks...
   Creating machine...
   (aws02) Launching instance...
@@ -24,42 +28,34 @@ Chave de acesso secreta: xxxxxxxxxxxxxxxxxxxxxxxxxxx
   Docker is up and running!
   To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env aws02
 
-❯ sudo docker-machine ls                                                  
-NAME    ACTIVE   DRIVER      STATE     URL                        SWARM   DOCKER     ERRORS
-aws02   -        amazonec2   Running   tcp://xxxxxxxxxxxxxxx           v18.09.6   
-
-❯ sudo docker-machine env aws02
+```sh
+$ sudo docker-machine ls
+$ sudo docker-machine env aws02
+```                                                   
 
   export DOCKER_TLS_VERIFY="1"
   export DOCKER_HOST="tcp://xxxxxxx"
   export DOCKER_CERT_PATH="/home/xxxxxx/.docker/machine/machines/aws02"
   export DOCKER_MACHINE_NAME="aws02"
-  # Run this command to configure your shell: 
-  # eval $(docker-machine env aws02)
+ 
+```sh
+$ eval $(docker-machine env aws02)
+```
+ Ao acessa a máquina na aws se de erro de permissão: 
+ 
+```sh
+$ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+$ sudo chmod g+rwx "/home/$USER/.docker" -R
+$ docker-machine ls 
+$ docker -v 
+```
+  
 
-❯ eval $(docker-machine env aws02)
-  open /home/xxxxxxxx/.docker/machine/machines/aws02/config.json: permission denied
 
-  acessa a máquina na aws  
-  #se de erro de permissão: Dentro da AWS
-  $sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-  $sudo chmod g+rwx "/home/$USER/.docker" -R
-
-
-❯ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-❯ sudo chmod g+rwx "/home/$USER/.docker" -R
-❯ eval $(docker-machine env aws02) 
-
-❯ docker-machine ls       
-NAME    ACTIVE   DRIVER      STATE     URL                        SWARM   DOCKER     ERRORS
-aws02   *        amazonec2   Running   tcp://xxxxxxxxxxx           v18.09.6   
-
-❯ docker -v                               
-Docker version 18.09.6, build 481bc77
-
-#criando a imagem
-❯ docker-compose -f docker-compose.yml -f docker-production.yml up -d
-
+criando a imagem
+```sh
+$ docker-compose -f docker-compose.yml -f docker-production.yml up -d
+```
 Creating network "nodejsdeployaws_default" with the default driver
 Pulling reverse-proxy (traefik:)...
 latest: Pulling from library/traefik
@@ -108,3 +104,16 @@ Successfully tagged nodejsdeployaws_app:latest
 WARNING: Image for service app was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 Creating nodejsdeployaws_reverse-proxy_1 ... done
 Creating nodejsdeployaws_app_1           ... done
+
+
+
+
+
+
+
+
+
+
+
+
+
