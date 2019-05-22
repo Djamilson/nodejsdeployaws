@@ -40,11 +40,11 @@ aws02   -        amazonec2   Running   tcp://xxxxxxxxxxxxxxx           v18.09.6
 ❯ eval $(docker-machine env aws02)
   open /home/xxxxxxxx/.docker/machine/machines/aws02/config.json: permission denied
 
-  ==============acessa a máquina na aws==================  
+  acessa a máquina na aws  
   #se de erro de permissão: Dentro da AWS
   $sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
   $sudo chmod g+rwx "/home/$USER/.docker" -R
-  =======================================================
+
 
 ❯ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 ❯ sudo chmod g+rwx "/home/$USER/.docker" -R
